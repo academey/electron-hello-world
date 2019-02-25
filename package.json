@@ -1,0 +1,20 @@
+{
+  "name": "electron-hello-world",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "academey",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build:all": "electron-packager . --out=dist --asar --overwrite --all --ignore=dist",
+    "build:darwin": "electron-packager . --out=dist --asar --overwrite --platform:darwin --arch=x64 --ignore=dist",
+    "compress": "cd dist; for file in `ls`; do zip -r -y $file.zip $file; done",
+    "buildandcompress": "yarn run build:darwin && yarn run compress"
+  },
+  "dependencies": {
+    "electron": "^4.0.5"
+  },
+  "devDependencies": {
+    "electron-packager": "^13.1.0"
+  }
+}
